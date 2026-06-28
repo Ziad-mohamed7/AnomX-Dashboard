@@ -361,10 +361,7 @@ with left_mid:
     fig_rul = go.Figure()
 
     # Shaded danger zone
-   left top(y0=0, y1=30, fillcolor="rgba(255,42,95,0.07)",
-                      line_width=0, annotation_text="CRITICAL ZONE",
-                      annotation_font=dict(color="#ff2a5f55", size=8, family="JetBrains Mono"),
-                     annotation_position="topleft")
+  fig_rul.add_hrect(y0=0, y1=30, fillcolor="rgba(255,42,95,0.07)", line_width=0, annotation_text="CRITICAL ZONE")
 
     # Gradient fill under line (fake via scatter fill)
     fig_rul.add_trace(go.Scatter(
