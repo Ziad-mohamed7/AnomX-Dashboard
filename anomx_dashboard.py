@@ -337,38 +337,7 @@ with c3:
             </div>
         </div>
     </div>
-    """,
-    unsafe_allow_html=True)
-    with left_mid:
-    fig_rul = go.Figure()
-
-    # Shaded danger zone — بدون annotation
-    fig_rul.add_hrect(y0=0, y1=30, fillcolor="rgba(255,42,95,0.07)", line_width=0)
-
-    # Annotations
-    annotations = [
-        dict(x="MAR", y=240, text="Degradation Start", showarrow=True,
-             arrowhead=2, arrowcolor="#00f0ff66", font=dict(color="#00f0ff", size=9, family="JetBrains Mono"),
-             ax=40, ay=-30, bgcolor="rgba(0,20,30,0.7)", bordercolor="#00f0ff44", borderpad=3),
-        dict(x="JUL", y=140, text="Anomaly Detected", showarrow=True,
-             arrowhead=2, arrowcolor="#ffaa0088", font=dict(color="#ffaa00", size=9, family="JetBrains Mono"),
-             ax=40, ay=-30, bgcolor="rgba(30,20,0,0.7)", bordercolor="#ffaa0044", borderpad=3),
-        dict(x="NOV", y=35, text="Critical Threshold", showarrow=True,
-             arrowhead=2, arrowcolor="#ff2a5f88", font=dict(color="#ff2a5f", size=9, family="JetBrains Mono"),
-             ax=40, ay=-30, bgcolor="rgba(30,0,10,0.7)", bordercolor="#ff2a5f44", borderpad=3),
-        dict(x="JAN", y=28, text="CRITICAL ZONE", showarrow=False,
-             font=dict(color="#ff2a5f", size=8, family="JetBrains Mono"),
-             xanchor="left", yanchor="top"),
-    ]
-
-    # Gradient fill under line
-    fig_rul.add_trace(go.Scatter(
-        x=time_labels, y=[0]*12, fill=None, mode="lines", line=dict(width=0), showlegend=False
-    ))السطر الجديد ده
-        dict(x="JAN", y=28, text="CRITICAL ZONE", showarrow=False,
-             font=dict(color="#ff2a5f", size=8, family="JetBrains Mono"),
-             xanchor="left", yanchor="top"),
-    ]
+    """, unsafe_allow_html=True)
 
 st.markdown("<div style='height:12px;'></div>", unsafe_allow_html=True)
 
@@ -390,8 +359,13 @@ with left_mid:
     ]
 
     fig_rul = go.Figure()
+
     # Shaded danger zone
-    fig_rul.add_hrect(y0=0, y1=30, fillcolor="rgba(255,42,95,0.07)", line_width=0)
+    fig_rul.add_hrect(y0=0, y1=30, fillcolor="rgba(255,42,95,0.07)",
+                      line_width=0, annotation_text="CRITICAL ZONE",
+                      annotation_font=dict(color="#ff2a5f55", size=8, family="JetBrains Mono"),
+                      annotation_position="top left")
+
     # Gradient fill under line (fake via scatter fill)
     fig_rul.add_trace(go.Scatter(
         x=time_labels, y=[0]*12, fill=None, mode="lines", line=dict(width=0), showlegend=False
