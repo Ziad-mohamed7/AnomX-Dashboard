@@ -337,8 +337,9 @@ with c3:
             </div>
         </div>
     </div>
-    """, unsafe_allow_html=True)
-        with left_mid:
+    """,
+    unsafe_allow_html=True)
+    with left_mid:
     fig_rul = go.Figure()
 
     # Shaded danger zone — بدون annotation
